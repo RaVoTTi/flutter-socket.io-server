@@ -1,1 +1,4 @@
 node_modules/
+database.js
+create/
+models/band-mongo.js

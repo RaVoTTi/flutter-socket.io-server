@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SocketServer</title>
 </head>
+
 <body>
     <h1>Acceso denegado</h1>
 
-    <script src = 'socket.io/socket.io.js'></script>
+    <script src='socket.io/socket.io.js'></script>
 
     <script>
         var socket = io(); // io = in and out 
 
-        socket.on('connect', () => { 
+        socket.on('connect', () => {
             console.log('Conectado al servidor');
         });
-        socket.on('disconnect', () => { 
+        socket.on('active-bands', (payload) => {
+            console.log(payload);
+        });
+        socket.on('disconnect', () => {
             console.log('Perdimos comunicacion con el server');
         });
 
-        socket.emit('mensaje', {nombre: 'Valentin'} );
+        socket.emit('mensaje', 'Navegador -ACCESO DENEGADO-');
 
         socket.on('mensaje', (payload) => {
-            console.log('mensaje',payload);
+            console.log('mensaje', payload);
         })
+        socket.on('Mensaje Flutter', (payload) => {
+            console.log(payload['name'] + ':', payload['message']);
+
+        });
     </script>
 </body>
+
 </html>
