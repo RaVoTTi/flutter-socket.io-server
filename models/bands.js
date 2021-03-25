@@ -19,7 +19,7 @@ class Bands {
     }
 
     deleteBand(id = '') {
-        this.bands = this.bands.filter(band => band.id !== id);
+        this.bands = this.bands.filter(band => band.id !== id); // si la condicion regresa un true lo va a filtrar, elimina solo lo excluye
         return this.bands;
     }
 

@@ -5,7 +5,8 @@ class Band {
     
     // el constructor solo requiere el nombnre de la banda
     constructor( name = 'no-name'){ 
-        this.id = uuidV4();
+
+        this.id = uuidV4(); // iden unico
         this.name = name;
         this.votes= 0;
     }

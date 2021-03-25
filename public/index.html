@@ -18,23 +18,25 @@
         socket.on('connect', () => {
             console.log('Conectado al servidor');
         });
-        socket.on('active-bands', (payload) => {
-            console.log(payload);
+        socket.on('active-bands', (bands) => {
+            console.clear();
+            console.table(bands);
+
         });
         socket.on('disconnect', () => {
             console.log('Perdimos comunicacion con el server');
         });
 
-        socket.emit('mensaje', 'Navegador -ACCESO DENEGADO-');
+        socket.emit('mensaje-navegador', 'Navegador -ACCESO DENEGADO-');
 
-        socket.on('mensaje', (payload) => {
-            console.log('mensaje', payload);
+        socket.on('mensaje-navegador', (payload) => {
+            console.log('mensaje-navegador', payload);
         })
-        socket.on('Mensaje Flutter', (payload) => {
+        socket.on('mensaje-flutter', (payload) => {
             console.log(payload['name'] + ':', payload['message']);
 
         });
     </script>
 </body>
 
-</html>
+</html>   
